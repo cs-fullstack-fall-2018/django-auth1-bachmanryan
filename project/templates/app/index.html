@@ -1,0 +1,22 @@
+{# Testing here #}
+{% load static %}
+<link rel="stylesheet" href="{% static 'app/bootstrap.css' %}">
+<div class="jumbotron">
+    <p>This is the forms app</p>
+    {% if user.is_authenticated %}
+        User: {{ user.get_username }}
+    {% else %}
+        Not logged in
+    {% endif %}
+</div>
+{% if form_list %}
+    <ul>
+        {% for eachItem in form_list %}
+            <li>{{ eachItem.name }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Nothing available.</p>
+{% endif %}
+<script src="{% static 'app/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'app/bootstrap.js' %}"></script>
